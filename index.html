@@ -1,37 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
   <meta charset="UTF-8">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/images/icon-192x192.png">
-  <meta name="theme-color" content="#fff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <!-- iPhone X (1125px x 2436px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/splash-1125x2436.png">
-  <!-- iPhone 8, 7, 6s, 6 (750px x 1334px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash--750x1334.png">
-  <!-- iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/splash-1242x2208.png">
-  <!-- iPhone 5 (640px x 1136px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-640x1136.png">
-  <!-- iPad Mini, Air (1536px x 2048px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-1536x2048.png">
-  <!-- iPad Pro 10.5" (1668px x 2224px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-1668x2224.png">
-  <!-- iPad Pro 12.9" (2048px x 2732px) -->
-  <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-2048x2732.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#000000">
+  <meta name="theme-color" content="#000000">
   <title>I KAwalieri di Akashi</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Manifest file -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- IOS Icons -->
+  <link rel="apple-touch-icon" sizes="72x72" href="images/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="images/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="images/icon-128x128.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="images/icon-384x384.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="images/icon-512x512.png">
+
+  <!-- IOS Splash Screen -->
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/splash-1125x2436.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-750x1334.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/images/splash/splash-1536x2048.png">
+
+  <!-- CSS file -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
+
 <body>
-  <iframe style="
-	  display: block;
+  <!-- Iframe website -->
+  <iframe src="https://www.ikawalieridiakashi.it" id="edh-iframe" style="
+    display: block;
     background: #fff;
     border: none;
     height: 100vh;
-    width: 100vw;" 
-	  src='https://www.ikawalieridiakashi.it' id='edh-iframe'>
+    width: 100vw;">
   </iframe>
-<script src="app.js"></script>
+
+  <!-- JS file -->
+  <script src="app.js" defer></script>
 </body>
 </html>

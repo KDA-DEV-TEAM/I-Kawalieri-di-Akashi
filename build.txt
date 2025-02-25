@@ -1,4 +1,0 @@
-cordova create myapp com.ikawalieridiakashi.it MyApp
-cd myapp
-cordova platform add android
-cordova build android

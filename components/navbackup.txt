@@ -1,0 +1,55 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+const NavBar = () => {
+  const navigation = useNavigation();
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.navBar}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Index')}>
+          <FontAwesome name="home" size={20} color="white" />
+          <Text style={styles.navText}>Home</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Albo')}>
+          <FontAwesome name="book" size={20} color="white" />
+          <Text style={styles.navText}>Albo</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Gadget')}>
+          <FontAwesome name="gift" size={20} color="white" />
+          <Text style={styles.navText}>Gadget</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Profile')}>
+          <FontAwesome name="map" size={20} color="white" />
+          <Text style={styles.navText}>Profile</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: '#4CAF50',
+  },
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#4CAF50',
+    padding: 10,
+  },
+  navItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5, // Aggiunge spazio tra icona e testo (React Native 0.71+)
+  },
+  navText: {
+    color: 'white',
+    fontSize: 16,
+    marginLeft: 5, // Per separare l'icona dal testo nelle versioni precedenti
+  },
+});
+
+export default NavBar;

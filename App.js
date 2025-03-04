@@ -12,7 +12,6 @@ import Regolamento from './screens/Regolamento';
 import Privacy from './screens/Privacy';
 import Contatti from './screens/Contatti';
 import ThankYou from './screens/ThankYou';
-import ManageUsers from './screens/ManageUsers';
 import ResetPassword from './screens/ResetPassword';
 import ModifyProfile from './screens/ModifyProfile';
 
@@ -39,7 +38,6 @@ export default function App() {
         <Stack.Screen name="Contatti" component={Contatti} />
         <Stack.Screen name="Privacy" component={Privacy} />
         <Stack.Screen name="ThankYou" component={ThankYou} />
-        <Stack.Screen name="ManageUsers" component={ManageUsers} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
       </Stack.Navigator>

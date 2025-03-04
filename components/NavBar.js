@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Animated, { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
 
 const { width, height } = Dimensions.get('window');
@@ -73,9 +74,13 @@ const NavBar = () => {
             <FontAwesome name="user" size={20} color="white" />
             <Text style={styles.menuText}>Regolamento</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Privacy')}>
+            <FontAwesome name="user" size={20} color="white" />
+            <Text style={styles.menuText}>Privacy Policy</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => openLink('fb://group/ikawalieridiakashi', 'https://www.facebook.com/ikawalieridiakashi')}
+            onPress={() => openLink('fb://group/ikawalieridiakashi', 'https://www.facebook.com/groups/ikawalieridiakashi')}
           >
             <FontAwesome name="facebook" size={20} color="white" />
             <Text style={styles.menuText}>Facebook</Text>
@@ -86,6 +91,13 @@ const NavBar = () => {
           >
             <FontAwesome name="instagram" size={20} color="white" />
             <Text style={styles.menuText}>Instagram</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => openLink('tiktok://user?username=ikawalieridiakashi', 'https://www.tiktok.com/@ikawalieridiakashi')}
+          >
+            <FontAwesome5 name="tiktok" size={20} color="white" />
+            <Text style={styles.menuText}>TikTok</Text>
           </TouchableOpacity>
           {/* Copyright */}
           <View style={styles.copyright}>

@@ -10,3 +10,5 @@ Il contenuto di questa directory è il progetto in react creato su expo.io.
 5. Avviare Expo CLI ---> npx expo start
 6. Scaricare l'App Expo Go
 7. Inquadrare il QR code dalla fotocamera dello smartphone per testare il progetto
+
+Ultimo aggiornamento 03 marzo 2025

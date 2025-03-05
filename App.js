@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'react-native';
 import Index from './screens/Index';
 import Article from './screens/Article';
 import Register from './screens/Register';
@@ -20,6 +21,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      {/* StatusBar per mostrare icone chiare su sfondo nero */}
+      <StatusBar barStyle="light-content" backgroundColor="black" />
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{

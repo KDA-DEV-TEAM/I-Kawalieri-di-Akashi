@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   header: {
-    height: 90, 
+    height: 100, 
     flexDirection: 'row', 
     alignItems: 'flex-end', 
     justifyContent: 'space-between', 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Linking } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Platform, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -112,7 +112,7 @@ const NavBar = () => {
 
 const styles = StyleSheet.create({
   navBar: {
-    height: 70,
+    height: Platform.OS === 'android' ? 50 : 70,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',

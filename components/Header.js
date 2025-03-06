@@ -58,11 +58,11 @@ const Header = () => {
 const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: '#252525',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, 
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight - 30 : 0, 
     opacity: 1,
   },
   header: {
-    height: 100, 
+     height: Platform.OS === 'ios' ? 100 : 60, 
     flexDirection: 'row', 
     alignItems: 'flex-end', 
     justifyContent: 'space-between', 

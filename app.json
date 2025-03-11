@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "I Kawaieri di Akashi",
+    "slug": "snack-c90971db-8d30-4fb0-8545-4b14768236c6",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000",
+        "permissions": ["INTERNET"]
+      },
+      "package": "com.ikawalieridiakashi.it"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "Progetto App React",
+    "extra": {
+      "eas": {
+        "projectId": "5af4317d-2523-4261-9d96-3a4d9faf119e"
+      }
+    },
+    "owner": "ikawalieridiakashi"
+  }
+}

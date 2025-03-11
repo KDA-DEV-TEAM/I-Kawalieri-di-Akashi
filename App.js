@@ -14,13 +14,35 @@ import Privacy from './screens/Privacy';
 import Contatti from './screens/Contatti';
 import ThankYou from './screens/ThankYou';
 import ResetPassword from './screens/ResetPassword';
+import SplashScreenComponent from './screens/SplashScreen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+        // Add any initialization logic here
+        await new Promise(resolve => setTimeout(resolve, 2000)); // 2 seconds delay
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setIsLoading(false);
+        await SplashScreen.hideAsync();
+      }
+    }
+    prepare();
+  }, []);
+
+  if (isLoading) {
+    return <SplashScreenComponent />;
+  }
+
   return (
     <NavigationContainer>
-      {/* StatusBar per mostrare icone chiare su sfondo nero */}
       <StatusBar barStyle="light-content" backgroundColor="black" />
       <Stack.Navigator
         initialRouteName="Index"

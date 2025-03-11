@@ -18,20 +18,28 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000",
+        "backgroundColor": "#000000"
       },
-      "permissions": ["INTERNET"]
-      "package": "com.ikawalieridiakashi.it"
+      "intentFilters": [
+        {
+          "autoVerify": true,
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "*.ikawalieridiakashi.it"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Progetto App React",
-    "extra": {
-      "eas": {
-        "projectId": "5af4317d-2523-4261-9d96-3a4d9faf119e"
-      }
-    },
-    "owner": "ikawalieridiakashi"
+    "description": "App dei Kawalieri di Akashi"
   }
 }

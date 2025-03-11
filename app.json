@@ -19,8 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000",
-        "permissions": ["INTERNET"]
       },
+      "permissions": ["INTERNET"]
       "package": "com.ikawalieridiakashi.it"
     },
     "web": {

@@ -1,44 +1,39 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'react-native';
-import Index from './screens/Index';
-import Article from './screens/Article';
-import Register from './screens/Register';
-import Profile from './screens/Profile';
-import Login from './screens/Login';
-import Gadget from './screens/Gadget';
-import Albo from './screens/Albo';
-import Regolamento from './screens/Regolamento';
-import Privacy from './screens/Privacy';
-import Contatti from './screens/Contatti';
-import ThankYou from './screens/ThankYou';
-import ResetPassword from './screens/ResetPassword';
-import SplashScreenComponent from './screens/SplashScreen';
+import React, { useState, useEffect } from "react";
+import { View, Text, ActivityIndicator, Image } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { StatusBar } from "react-native";
+import Index from "./screens/Index";
+import Article from "./screens/Article";
+import Register from "./screens/Register";
+import Profile from "./screens/Profile";
+import Login from "./screens/Login";
+import Gadget from "./screens/Gadget";
+import Albo from "./screens/Albo";
+import Regolamento from "./screens/Regolamento";
+import Privacy from "./screens/Privacy";
+import Contatti from "./screens/Contatti";
+import ThankYou from "./screens/ThankYou";
+import ResetPassword from "./screens/ResetPassword";
 
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    async function prepare() {
-      try {
-        await SplashScreen.preventAutoHideAsync();
-        // Add any initialization logic here
-        await new Promise(resolve => setTimeout(resolve, 2000)); // 2 seconds delay
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setIsLoading(false);
-        await SplashScreen.hideAsync();
-      }
-    }
-    prepare();
+    setTimeout(() => {
+      setIsReady(true);
+    }, 2000); // Simula il caricamento delle risorse
   }, []);
 
-  if (isLoading) {
-    return <SplashScreenComponent />;
+  if (!isReady) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "black" }}>
+        <Image source={require("./assets/splash-icon.png")} style={{ width: 200, height: 200 }} />
+        <ActivityIndicator size="large" color="white" />
+      </View>
+    );
   }
 
   return (
@@ -47,8 +42,8 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="Index"
         screenOptions={{
-          headerShown: false, // Nasconde l'header predefinito
-          cardStyle: { backgroundColor: 'black' }, // Sfondo nero per tutte le schermate
+          headerShown: false,
+          cardStyle: { backgroundColor: "black" },
         }}
       >
         <Stack.Screen name="Index" component={Index} />

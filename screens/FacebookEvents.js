@@ -3,7 +3,7 @@ import { View, Text, Image, FlatList, TouchableOpacity, Linking, ActivityIndicat
 import Header from '../components/Header';  // Importa il componente Header
 import NavBar from '../components/NavBar';  // Importa il componente NavBar
 
-const FACEBOOK_GROUP_ID = "ikawalieridiakashi"; // Sostituisci con l'ID del gruppo pubblico
+const FACEBOOK_GROUP_ID = "116395068378866"; // Sostituisci con l'ID del gruppo pubblico
 const ACCESS_TOKEN = "YOUR_ACCESS_TOKEN"; // Sostituisci con il tuo access token
 
 const fetchFacebookEvents = async () => {

@@ -15,6 +15,7 @@ import Privacy from "./screens/Privacy";
 import Contatti from "./screens/Contatti";
 import ThankYou from "./screens/ThankYou";
 import ResetPassword from "./screens/ResetPassword";
+import FacebookEvents from "./screens/FacebookEvents";
 
 const Stack = createStackNavigator();
 
@@ -58,7 +59,9 @@ export default function App() {
         <Stack.Screen name="Privacy" component={Privacy} />
         <Stack.Screen name="ThankYou" component={ThankYou} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="FacebookEvents" component={FacebookEvents} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+

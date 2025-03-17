@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions, Platform, Linking } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Animated, { useSharedValue, withSpring, useAnimatedStyle } from 'react-native-reanimated';
@@ -9,6 +9,7 @@ const { width, height } = Dimensions.get('window');
 
 const NavBar = () => {
   const navigation = useNavigation();
+  const route = useRoute();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const menuOffset = useSharedValue(-width);
 
@@ -22,6 +23,14 @@ const NavBar = () => {
       transform: [{ translateX: withSpring(menuOffset.value, { damping: 15, stiffness: 120 }) }],
     };
   });
+
+  // Chiude il menu quando si torna alla Home
+  useEffect(() => {
+    if (route.name === 'Index') {
+      setMenuOpen(false);
+      menuOffset.value = -width;
+    }
+  }, [route.name]);
 
   // Funzione per aprire il link con fallback
   const openLink = (url, fallbackUrl) => {
@@ -38,7 +47,14 @@ const NavBar = () => {
     <>
       {/* Navbar */}
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Index')}>
+        <TouchableOpacity 
+          style={styles.navItem} 
+          onPress={() => { 
+            setMenuOpen(false); 
+            menuOffset.value = -width; 
+            navigation.navigate('Index'); 
+          }}
+        >
           <FontAwesome name="home" size={20} color="white" />
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
@@ -46,9 +62,9 @@ const NavBar = () => {
           <FontAwesome name="book" size={20} color="white" />
           <Text style={styles.navText}>Albo</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Gadget')}>
-          <FontAwesome name="gift" size={20} color="white" />
-          <Text style={styles.navText}>Gadget</Text>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('FacebookEvents')}>
+          <FontAwesome name="calendar" size={20} color="white" />
+          <Text style={styles.navText}>Eventi</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={toggleMenu}>
           <FontAwesome name="bars" size={20} color="white" />
@@ -62,40 +78,39 @@ const NavBar = () => {
           <TouchableOpacity style={styles.closeButton} onPress={toggleMenu}>
             <Text style={styles.closeText}>X</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Profile')}>
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Profile'); }}>
             <FontAwesome name="user" size={20} color="white" />
             <Text style={styles.menuText}>Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Contatti')}>
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Gadget'); }}>
+            <FontAwesome name="gift" size={20} color="white" />
+            <Text style={styles.menuText}>Gadget</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Contatti'); }}>
             <FontAwesome name="user" size={20} color="white" />
             <Text style={styles.menuText}>Contatti</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Regolamento')}>
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Regolamento'); }}>
             <FontAwesome name="user" size={20} color="white" />
             <Text style={styles.menuText}>Regolamento</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Privacy')}>
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Privacy'); }}>
             <FontAwesome name="user" size={20} color="white" />
             <Text style={styles.menuText}>Privacy Policy</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => openLink('fb://group/ikawalieridiakashi', 'https://www.facebook.com/groups/ikawalieridiakashi')}
-          >
+          <TouchableOpacity style={styles.menuItem} onPress={() => { setMenuOpen(false); menuOffset.value = -width; navigation.navigate('Navigator'); }}>
+            <FontAwesome name="map-marker" size={20} color="white" />
+            <Text style={styles.menuText}>Navigatore</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem} onPress={() => openLink('fb://group/ikawalieridiakashi', 'https://www.facebook.com/groups/ikawalieridiakashi')}>
             <FontAwesome name="facebook" size={20} color="white" />
             <Text style={styles.menuText}>Facebook</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => openLink('instagram://user?username=ikawalieridiakashi', 'https://www.instagram.com/ikawalieridiakashi')}
-          >
+          <TouchableOpacity style={styles.menuItem} onPress={() => openLink('instagram://user?username=ikawalieridiakashi', 'https://www.instagram.com/ikawalieridiakashi')}>
             <FontAwesome name="instagram" size={20} color="white" />
             <Text style={styles.menuText}>Instagram</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.menuItem}
-            onPress={() => openLink('tiktok://user?username=ikawalieridiakashi', 'https://www.tiktok.com/@ikawalieridiakashi')}
-          >
+          <TouchableOpacity style={styles.menuItem} onPress={() => openLink('tiktok://user?username=ikawalieridiakashi', 'https://www.tiktok.com/@ikawalieridiakashi')}>
             <FontAwesome5 name="tiktok" size={20} color="white" />
             <Text style={styles.menuText}>TikTok</Text>
           </TouchableOpacity>

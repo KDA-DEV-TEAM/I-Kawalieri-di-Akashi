@@ -13,9 +13,18 @@
       "backgroundColor": "#000000"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMaps": {
+          "apiKey": "IzaSyCrtaH5jkVY05pEhNqVGraC6_efnecAS2w"
+        }
+      }
     },
     "android": {
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000"
@@ -35,7 +44,12 @@
             "DEFAULT"
           ]
         }
-      ]
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "IzaSyCrtaH5jkVY05pEhNqVGraC6_efnecAS2w"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -43,3 +57,5 @@
     "description": "App dei Kawalieri di Akashi"
   }
 }
+
+

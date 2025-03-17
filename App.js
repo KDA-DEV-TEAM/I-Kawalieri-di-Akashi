@@ -16,6 +16,8 @@ import Contatti from "./screens/Contatti";
 import ThankYou from "./screens/ThankYou";
 import ResetPassword from "./screens/ResetPassword";
 import FacebookEvents from "./screens/FacebookEvents";
+import Navigator from "./screens/Navigator";
+import ModifyProfile from "./screens/ModifyProfile";
 
 const Stack = createStackNavigator();
 
@@ -60,8 +62,9 @@ export default function App() {
         <Stack.Screen name="ThankYou" component={ThankYou} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="FacebookEvents" component={FacebookEvents} />
+        <Stack.Screen name="Navigator" component={Navigator} />
+        <Stack.Screen name="ModifyProfile" component={ModifyProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
